@@ -1,0 +1,6 @@
+name = "proven-earth"
+pages_build_output_dir = "dist"
+
+[env.preview]
+
+[env.production]

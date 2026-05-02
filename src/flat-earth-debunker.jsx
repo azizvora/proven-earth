@@ -1585,19 +1585,17 @@ export default function App() {
       {/* Header */}
       <div style={{ borderBottom: "1.5px solid #d0ccc4", background: "#f0ece4" }}>
         <div style={{ maxWidth: 1060, margin: "0 auto", padding: "0 40px" }}>
-          <div style={{ padding: "28px 0 0" }}>
+          {/* Title block */}
+          <div style={{ paddingTop: 28 }}>
             <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "clamp(48px, 7vw, 88px)", fontWeight: 900, margin: 0, letterSpacing: "-0.01em", lineHeight: 0.9, textTransform: "uppercase", color: "#1a1a1a" }}>
               PROVEN<br />EARTH
             </h1>
-            <p style={{ fontSize: 13, color: "#999", margin: "10px 0 0", letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 500 }}>
-              Independent, verifiable demonstrations
-            </p>
-            <p style={{ fontSize: 13, color: "#999", margin: "2px 0 0", letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 500 }}>
-              of Earth's shape
+            <p style={{ fontSize: 13, color: "#999", margin: "10px 0 0", letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 500, lineHeight: 1.6 }}>
+              Independent, verifiable demonstrations<br />of Earth's shape
             </p>
           </div>
           {/* Nav */}
-          <div style={{ display: "flex", gap: 0, marginTop: 16, justifyContent: "center" }}>
+          <div style={{ display: "flex", gap: 0, marginTop: 24 }}>
             {SECTIONS.map(s => (
               <button key={s.id} className={`nav-tab${activeSection === s.id ? " active" : ""}`} onClick={() => setActiveSection(s.id)}>
                 <span>{s.label}</span>

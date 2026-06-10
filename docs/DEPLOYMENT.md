@@ -1,10 +1,13 @@
 # Deployment
 
-## Deploy command
+## Deploy = push to main (Aziz's decision 2026-06-10)
+Push to `main` and `.github/workflows/deploy.yml` builds and deploys to Cloudflare Pages, same pattern as SubDisplay. Requires repo secret `CLOUDFLARE_API_TOKEN` (Cloudflare Pages: Edit scope); account ID is hardcoded in the workflow. Aziz sets/rotates the secret himself in a separate terminal — never paste tokens into a Claude session.
+
+Manual fallback only if Actions is broken:
 ```
 npm run build && npx wrangler pages deploy dist --project-name proven-earth
 ```
-Just tell Claude to "deploy" — it will run this. Do not use GitHub Actions (wrangler CLI is simpler and already authenticated).
+Re-run a deploy without a new commit: `gh workflow run deploy.yml`.
 
 ## URLs
 - Live: provenearth.com and proven-earth.pages.dev

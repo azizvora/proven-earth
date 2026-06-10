@@ -4,7 +4,7 @@ React + Vite app demonstrating Earth's shape. Four interactive canvas-based sect
 
 ## Quick facts
 - App shell: `src/flat-earth-debunker.jsx` (routes, world-data fetch, ALL CSS). Sections: `SolarSection.jsx`, `StarsSection.jsx`, `FlightSection.jsx`, `CircumnavSection.jsx`. Shared nav/brand: `chrome.jsx`. Shared copy + SECTIONS list: `copy.js`.
-- Deploy: `npm run build && npx wrangler pages deploy dist --project-name proven-earth`
+- Deploy: push to `main` → GitHub Actions → Cloudflare Pages (same pattern as SubDisplay). Manual fallback: `npm run build && npx wrangler pages deploy dist --project-name proven-earth`, or `gh workflow run deploy.yml`. Never push without Aziz's explicit OK.
 - Live: provenearth.com | Repo: github.com/azizvora/proven-earth
 - Routing: React Router, BrowserRouter in main.jsx. `/` and `/solar` render SolarSection; `/stars`, `/flights`, `/circum` have their own routes. All four sections are live.
 - World atlas: `/public/countries-110m.json`, parsed with `topojson-client`. No CDN at runtime. Fetch failure shows a retry banner.
@@ -36,7 +36,7 @@ app-shell (flex col, 100vh)
 - **Never add NASA** as a source (distrusted by target audience)
 - **Never state conclusions** in UI copy — describe, let users decide. The Stars panels are labelled "On a globe" / "On a flat earth" with descriptive captions only; no "wrong"/"contradicts" language.
 - **No em or en dashes in user-facing copy** — use "to" for ranges, commas or colons otherwise
-- **Never use GitHub Actions** for deploy — wrangler CLI only (workflow was deleted June 2026)
+- **Deploy is push-to-deploy via GitHub Actions** (Aziz's decision 2026-06-10, reversing the earlier wrangler-only rule). Workflow: `.github/workflows/deploy.yml`, needs repo secret `CLOUDFLARE_API_TOKEN` (Cloudflare Pages: Edit scope). Account ID is hardcoded in the workflow.
 - **Newsletter form stays removed** until a real Beehiiv backend exists — the old form silently discarded emails
 - `d3` is imported by `drawing.js` and `StarsSection.jsx` (Mercator click-invert). The app shell no longer imports it.
 

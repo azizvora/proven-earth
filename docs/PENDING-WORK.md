@@ -19,5 +19,5 @@
 - ~~Split sections into files~~ — one file per section, shared chrome.jsx + copy.js
 - ~~World atlas served locally~~ — no jsdelivr runtime dependency; retry banner on fetch failure
 - ~~Sitemap~~ — now lists /, /stars, /flights, /circum
-- ~~GitHub Actions workflow deleted~~ — deploy is wrangler CLI only
+- ~~Deploy pipeline~~ — push-to-deploy via GitHub Actions restored same day at Aziz's request (the May version never worked because the repo secret was missing); wrangler CLI is now the fallback only
 - ~~Per-section URLs with React Router~~

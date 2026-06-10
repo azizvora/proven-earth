@@ -276,7 +276,7 @@ export default function StarsSection({ worldData }) {
 
       <div className="section-right">
         <SectionNav />
-        <div className="map-canvas-area">
+        <div className="map-canvas-area stars-canvas-area">
           {showMapNotes && <div className="map-notes-panel">{STARS_NOTE}</div>}
 
           <div className="sky-compare-wrap">

@@ -20,6 +20,7 @@ export function SectionNav() {
   const activeSection = location.pathname.slice(1) || "solar";
   return (
     <nav className="section-nav-overlay">
+      <span className="nav-mini-brand" onClick={() => navigate("/")}>PROVEN EARTH</span>
       {SECTIONS.map(s => (
         <button key={s.id}
           className={`mode-btn${activeSection === s.id ? " active" : ""}`}

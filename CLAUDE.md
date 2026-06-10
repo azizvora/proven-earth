@@ -46,6 +46,12 @@ app-shell (flex col, 100vh)
 - Location picker is the shared Mercator map; click-invert must mirror the projection inside `sharedDrawMercator` (pad 18). Only latitude affects the sky.
 - The old `starAltAz` had an azimuth bug (`sin H` for `cos H`) — fixed in the rebuild; don't copy formulas from git history.
 
+## The map stage (design rule, June 2026)
+Every projection (globe, AE, Mercator, star panels) renders on the SAME dark stage: background `#08090f`, rounded 12px, `1px solid #d0ccc4` border, overflow hidden. Never give the AE map its old beige-paper treatment; switching modes must feel like changing the lens, not the site.
+
+## Mobile layout (max-width 700px)
+Map first: `.section-right` gets `order: 1`, `.section-left` (controls) `order: 2`. `.sidebar-brand` is hidden; the nav shows `.nav-mini-brand` instead and is `position: sticky` at the top of the scrolling `.section-split`. `.map-canvas-area` becomes column flow with `height: auto`; `.map-controls-overlay` becomes a static full-width row under the map (not absolute). Stars/Solar compare panels stack vertically.
+
 ## AE map orientation
 All AE maps use `rotate([90,-90])` — 90°W meridian at top (Americas-facing). Crossfade canvases need `zIndex: 0` on prevCanvas and `zIndex: 1` on canvasRef.
 

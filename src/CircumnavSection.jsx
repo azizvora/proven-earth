@@ -239,7 +239,7 @@ export default function CircumnavSection({ worldData }) {
         <SectionNav />
         <div className="map-canvas-area">
           {showMapNotes && <div className="map-notes-panel">{MAP_NOTES[viewMode]}</div>}
-          <div className="globe-fill" style={{ borderRadius: viewMode==="ae"?0:12, overflow: viewMode==="ae"?"visible":"hidden", border: viewMode==="ae"?"none":"1px solid #d0ccc4", cursor: viewMode === "globe" ? (dragging ? "grabbing" : "grab") : "default" }}>
+          <div className="globe-fill" style={{ borderRadius: 12, overflow: "hidden", border: "1px solid #d0ccc4", cursor: viewMode === "globe" ? (dragging ? "grabbing" : "grab") : "default" }}>
             <canvas ref={prevCanvasRef} width={GLOBE_S} height={GLOBE_S}
               style={{ display: "block", width: "100%", height: "auto", position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 0 }} />
             <canvas ref={canvasRef} width={GLOBE_S} height={GLOBE_S}

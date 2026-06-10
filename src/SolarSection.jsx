@@ -288,7 +288,7 @@ export default function SolarSection({ worldData }) {
             </div>
           </div>
         ) : (
-          <div className="globe-fill" style={{ borderRadius: showMode === "ae" ? 0 : 12, overflow: showMode === "ae" ? "visible" : "hidden", border: showMode === "ae" ? "none" : "1px solid #d0ccc4", cursor: dragging ? "grabbing" : "grab" }}>
+          <div className="globe-fill" style={{ borderRadius: 12, overflow: "hidden", border: "1px solid #d0ccc4", cursor: dragging ? "grabbing" : "grab" }}>
             <canvas ref={prevCanvasRef} width={canvasW} height={canvasH}
               style={{ display: "block", width: "100%", height: "auto", position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 0 }} />
             <canvas ref={canvasRef} width={canvasW} height={canvasH}

@@ -108,6 +108,7 @@ export default function App() {
         .tick-labels { display: flex; justify-content: space-between; font-size: 12px; color: #aaa; margin-top: 2px; }
         .sidebar-brand { padding-bottom: 24px; margin-bottom: 4px; border-bottom: 1.5px solid #e4e0d8; }
         .section-nav-overlay { display: flex; align-items: center; gap: 6px; padding: 12px 20px; flex-shrink: 0; flex-wrap: wrap; border-bottom: 1.5px solid #d0ccc4; background: #f0ece4; }
+        .nav-mini-brand { display: none; }
         /* ── Mobile ── */
         @media (max-width: 700px) {
           .site-header { padding: 10px 16px; gap: 10px; flex-wrap: wrap; }
@@ -118,11 +119,20 @@ export default function App() {
           .header-nav { width: 100%; flex-wrap: wrap; }
           .header-nav .nav-tab { flex: 1; justify-content: center; font-size: 11px; padding: 7px 8px; }
           .section-split { flex-direction: column; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-          .section-left { width: 100%; padding: 12px 16px; gap: 10px; flex-shrink: 0; }
-          .section-right { flex: none; }
-          .section-nav-overlay { padding: 8px 12px; gap: 4px; }
+          /* Map first on mobile: the visual leads, controls follow */
+          .section-left { width: 100%; padding: 12px 16px; gap: 10px; flex-shrink: 0; order: 2; }
+          .section-right { flex: none; order: 1; overflow: visible; }
+          .sidebar-brand { display: none; }
+          .section-nav-overlay { padding: 8px 12px 6px; gap: 4px; position: sticky; top: 0; z-index: 30; }
           .section-nav-overlay .mode-btn { padding: 7px 10px; font-size: 11px; }
-          .map-canvas-area { height: 85vw; }
+          .nav-mini-brand { display: block; width: 100%; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 28px; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; color: #1a1a1a; cursor: pointer; padding: 2px 4px 4px; }
+          .map-canvas-area { height: auto; flex-direction: column; }
+          .globe-fill { height: auto; width: 100%; }
+          .map-controls-overlay { position: static; transform: none; width: 100%; border: none; border-bottom: 1.5px solid #d0ccc4; border-radius: 0; padding: 8px 12px; backdrop-filter: none; -webkit-backdrop-filter: none; }
+          .globe-compare-wrap { height: auto; flex-direction: column; padding: 8px; }
+          .globe-compare-wrap > div { height: auto; width: 100%; max-width: 100%; }
+          .sky-compare-wrap { flex-direction: column; height: auto; }
+          .sky-compare-wrap > div { width: 100%; }
           .map-controls-overlay { bottom: 8px; padding: 5px 8px; gap: 4px; }
           input[type=range] { height: 20px; }
           input[type=range]::-webkit-slider-thumb { width: 24px; height: 24px; }

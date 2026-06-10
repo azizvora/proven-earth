@@ -161,8 +161,8 @@ export function sharedDrawAE(ctx, W, worldData, z, p, sun, options = {}) {
   const tx = cx + p.x, ty = cy + p.y;
   const proj = d3.geoAzimuthalEquidistant().rotate([90,-90]).scale(radius/Math.PI).translate([tx,ty]);
   // Background with hatching
-  ctx.fillStyle = "#f0ece4"; ctx.fillRect(0,0,W,W);
-  ctx.strokeStyle = "rgba(180,170,155,0.28)"; ctx.lineWidth = 0.7;
+  ctx.fillStyle = "#08090f"; ctx.fillRect(0,0,W,W);
+  ctx.strokeStyle = "rgba(150,160,190,0.07)"; ctx.lineWidth = 0.7;
   for (let i = -W; i < W*2; i+=18) { ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i+W,W); ctx.stroke(); }
   // Illumination layer clipped to disc — fixed ILLUM_R size, cached by sun+flatLight
   const { flatLight = false } = options;
@@ -209,7 +209,7 @@ export function sharedDrawAE(ctx, W, worldData, z, p, sun, options = {}) {
   bctx.putImageData(bd,0,0);
   ctx.drawImage(bOff, tx-bcx, ty-bcy);
   ctx.save();
-  ctx.font="italic 11px Georgia, serif"; ctx.fillStyle="rgba(140,130,115,0.5)";
+  ctx.font="italic 11px Georgia, serif"; ctx.fillStyle="rgba(170,180,200,0.45)";
   ctx.textAlign="center"; ctx.fillText("extent unknown", tx, ty+radius*1.3);
   ctx.restore();
   if (sun) {
@@ -228,8 +228,8 @@ export function sharedDrawAESouth(ctx, W, worldData, z, rot, sun, options = {}) 
   const cx = W/2, cy = W/2;
   const radius = (W/2 - 16) * 0.78 * z;
   const proj = d3.geoAzimuthalEquidistant().rotate([rot[0], 90]).scale(radius/Math.PI).translate([cx,cy]);
-  ctx.fillStyle = "#f0ece4"; ctx.fillRect(0,0,W,W);
-  ctx.strokeStyle = "rgba(180,170,155,0.28)"; ctx.lineWidth=0.7;
+  ctx.fillStyle = "#08090f"; ctx.fillRect(0,0,W,W);
+  ctx.strokeStyle = "rgba(150,160,190,0.07)"; ctx.lineWidth=0.7;
   for (let i=-W;i<W*2;i+=18){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i+W,W);ctx.stroke();}
   const { flatLight = false } = options;
   const effectiveSun = flatLight ? { lat: 0, lon: 0 } : (sun || { lat: 0, lon: 0 });
